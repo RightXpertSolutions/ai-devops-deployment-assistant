@@ -325,7 +325,14 @@ Steps:
 
 # Screenshots
 
-Add screenshots of the interface here.
+![alt text](analysis.png)
+![alt text](dashboard.png)
+![alt text](devops-output-ai-devops-Recommendation.png) 
+![alt text](devops-output-ci_workflow.png) 
+![alt text](devops-output-deployment_instructions.png) 
+![alt text](devops-output-deployment_suggestion.png) 
+![alt text](devops-output-dockerfile-kubernetes.png) 
+![alt text](devops-output-terraform.png)
 
 Example:
 
