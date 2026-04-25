@@ -20,7 +20,7 @@ function App() {
 	// Fetch previous analyses from the backend
 	const loadHistory = async () => {
 		try {
-			const response = await axios.get("http://localhost:5000/api/analyses");
+			const response = await axios.get("https://ai-devops-deployment-assistant.onrender.com/api/analyses");
 			setHistory(response.data);
 		} catch (error) {
 			console.error("History loading error:", error);
@@ -37,7 +37,7 @@ function App() {
 		try {
 			setLoading(true);
 
-			const response = await axios.post("http://localhost:5000/api/analyze", {
+			const response = await axios.post("https://ai-devops-deployment-assistant.onrender.com/api/analyze", {
 				repoUrl,
 			});
 
@@ -86,7 +86,7 @@ function App() {
 	const downloadPackage = async () => {
 		try {
 			const response = await axios.post(
-				"http://localhost:5000/api/download",
+				"https://ai-devops-deployment-assistant.onrender.com/api/download",
 				result,
 				{ responseType: "blob" },
 			);
