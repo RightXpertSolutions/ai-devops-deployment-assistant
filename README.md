@@ -1,26 +1,36 @@
-Great. Here is a **clean professional README.md** you can place in the root of your project.
+# AI DevOps Deployment Assistant
 
-Create a file:
+An intelligent DevOps automation platform that analyzes GitHub repositories and automatically generates deployment infrastructure.
 
-```text
-README.md
-```
-
-Paste this inside.
+The system detects the application stack and produces ready-to-use DevOps artifacts including **Dockerfiles, Kubernetes manifests, Terraform infrastructure, CI/CD pipelines, deployment scripts, and AI-powered deployment recommendations**.
 
 ---
 
-# AI DevOps Deployment Assistant
+# Live Application
 
-An intelligent DevOps automation tool that analyzes GitHub repositories and generates deployment infrastructure automatically.
+Frontend (Vercel)
 
-The platform detects the application stack and produces ready-to-use DevOps artifacts including Dockerfiles, Kubernetes manifests, Terraform infrastructure, CI/CD pipelines, deployment instructions, and AI-powered deployment recommendations.
+```
+https://ai-devops-deployment-assistant.vercel.app
+```
+
+Backend API (Render)
+
+```
+https://ai-devops-deployment-assistant.onrender.com
+```
+
+GitHub Repository
+
+```
+https://github.com/RightXpertSolutions/ai-devops-deployment-assistant
+```
 
 ---
 
 # Features
 
-### Repository Analysis
+## Repository Analysis
 
 Analyze any public GitHub repository by providing the repository URL.
 
@@ -41,46 +51,47 @@ Examples of detected stacks include:
 
 ---
 
-### DevOps Artifact Generation
+## DevOps Artifact Generation
 
-For each analyzed repository the system automatically generates:
+For each analyzed repository the system automatically generates deployment infrastructure.
 
-**Dockerfile**
+### Dockerfile
 
 Containerization configuration for the application.
 
-**Kubernetes YAML**
+### Kubernetes YAML
 
 Deployment and service configuration for Kubernetes clusters.
 
-**Terraform Infrastructure**
+### Terraform Infrastructure
 
 Infrastructure as Code templates for AWS deployment.
 
-**CI/CD Workflow**
+### CI/CD Workflow
 
-GitHub Actions pipeline for automated builds.
+GitHub Actions pipeline for automated builds and deployment.
 
-**Deployment Instructions**
+### Deployment Instructions
 
-Step-by-step commands for running the application.
+Step-by-step commands for deploying the application.
 
 ---
 
-### AI DevOps Recommendations
+## AI DevOps Recommendations
 
 The platform integrates AI to provide professional DevOps guidance including:
 
-* Best deployment option
+* Best deployment strategy
 * Security considerations
 * Scaling recommendations
-* Infrastructure improvement suggestions
+* Infrastructure optimization suggestions
+* Cost-efficient cloud architecture recommendations
 
 ---
 
-### DevOps Package Download
+## DevOps Package Download
 
-Users can download a **DevOps deployment package** containing:
+Users can download a **complete DevOps deployment package** containing:
 
 ```
 Dockerfile
@@ -94,31 +105,55 @@ This allows developers to immediately deploy their applications.
 
 ---
 
-### Analysis History
+## Analysis History
 
-All repository analyses are stored in MongoDB and displayed in a dashboard for quick access.
+All repository analyses are stored in **MongoDB Atlas** and displayed in a dashboard for quick access.
 
 ---
 
 # Architecture
 
-Frontend
+## Frontend
 
 React (Vite)
 
-Backend
+## Backend
 
 Node.js
 Express
 
-Database
+## Database
 
 MongoDB Atlas
 
-External APIs
+## External APIs
 
 GitHub API
 OpenAI API
+
+## Deployment Platforms
+
+Vercel (Frontend)
+Render (Backend)
+
+---
+
+# System Architecture
+
+```
+User
+  ↓
+React Frontend (Vercel)
+  ↓
+Node.js Express API (Render)
+  ↓
+Services Layer
+   ├── GitHub API
+   ├── OpenAI API
+   └── DevOps Generator
+  ↓
+MongoDB Atlas
+```
 
 ---
 
@@ -129,7 +164,10 @@ ai-devops-deployment-assistant
 
 client
   src
+    components
+    pages
     App.jsx
+    main.jsx
 
 server
   src
@@ -138,8 +176,11 @@ server
     services
       githubService.js
       aiService.js
+      devopsGenerator.js
     models
       Analysis.js
+    controllers
+      analyzeController.js
     index.js
 ```
 
@@ -150,7 +191,7 @@ server
 Clone the repository.
 
 ```
-git clone https://github.com/yourusername/ai-devops-deployment-assistant.git
+git clone https://github.com/RightXpertSolutions/ai-devops-deployment-assistant.git
 ```
 
 Install backend dependencies.
@@ -171,17 +212,20 @@ npm install
 
 # Environment Variables
 
-Create a `.env` file inside the server folder.
+Create a `.env` file inside the **server folder**.
 
 ```
-MONGO_URI=your_mongodb_connection
-OPENAI_API_KEY=your_openai_key
-GITHUB_TOKEN=your_github_token
+MONGO_URI=your_mongodb_connection_string
+OPENAI_API_KEY=your_openai_api_key
+GITHUB_TOKEN=your_github_personal_access_token
+PORT=5000
 ```
+
+Never commit the `.env` file to GitHub.
 
 ---
 
-# Run the Application
+# Run the Application Locally
 
 Start the backend server.
 
@@ -205,33 +249,124 @@ http://localhost:5173
 
 ---
 
+# API Endpoint
+
+Analyze GitHub Repository
+
+```
+POST /api/analyze
+```
+
+Request body example:
+
+```json
+{
+  "repoUrl": "https://github.com/facebook/react"
+}
+```
+
+Response:
+
+```json
+{
+  "stack": "React + Node.js",
+  "dockerfile": "...",
+  "kubernetes": "...",
+  "terraform": "...",
+  "recommendations": "..."
+}
+```
+
+---
+
+# Deployment
+
+## Frontend Deployment
+
+Deployed using **Vercel**
+
+```
+vercel --prod
+```
+
+---
+
+## Backend Deployment
+
+Deployed using **Render**
+
+Steps:
+
+1. Connect GitHub repository
+2. Set environment variables
+3. Deploy Node.js service
+
+---
+
+# Security Best Practices
+
+* API keys stored in environment variables
+* `.env` excluded using `.gitignore`
+* Backend handles all external API requests
+* Frontend never exposes sensitive keys
+
+---
+
 # Example Workflow
 
 1. Enter a GitHub repository URL
 2. Click **Analyze**
-3. The system detects the technology stack
+3. System detects the technology stack
 4. DevOps infrastructure is generated
 5. AI provides deployment recommendations
 6. Download the DevOps deployment package
 
 ---
 
+# Screenshots
+
+Add screenshots of the interface here.
+
+Example:
+
+```
+docs/images/dashboard.png
+docs/images/analysis.png
+docs/images/devops-output.png
+```
+
+---
+
 # Future Improvements
 
 * Multi-language stack detection
-* Repository architecture detection
-* Microservices analysis
-* Cloud provider recommendations
-* Authentication and user accounts
-* Deployment automation
+* Microservices architecture detection
+* Multi-cloud deployment generation
+* User authentication and accounts
+* Deployment automation to cloud providers
+* Infrastructure cost estimation
+
+---
+
+# Contribution
+
+Contributions are welcome.
+
+Steps:
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit changes
+4. Open a Pull Request
 
 ---
 
 # Author
 
 Frederick Dordaah Ngmensoro Kuuyine
-
 Full-Stack & DevOps Engineer in training.
+
+Toronto, Canada
 
 ---
 
@@ -240,3 +375,5 @@ Full-Stack & DevOps Engineer in training.
 MIT License
 
 ---
+
+
