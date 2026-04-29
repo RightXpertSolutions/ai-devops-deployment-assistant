@@ -1,44 +1,51 @@
-# Node dependencies
+# -------------------------
+# Node & Package Managers
+# -------------------------
 node_modules/
-
-# Environment variables (very important)
-.env
-.env.local
-.env.development
-.env.production
-
-# Logs
-logs
-*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# OS files
+# -------------------------
+# Build Output (Vite)
+# -------------------------
+dist/
+build/
+.vite/
+
+# -------------------------
+# Environment Variables
+# -------------------------
+.env
+.env.local
+.env.*.local
+
+# -------------------------
+# Logs
+# -------------------------
+*.log
+
+# -------------------------
+# OS Files
+# -------------------------
 .DS_Store
 Thumbs.db
 
-# Build folders
-dist/
-build/
-coverage/
-
-# Vite build output
-client/dist/
-
-# Temporary files
-tmp/
-temp/
-
-# IDE files
+# -------------------------
+# Editor / IDE
+# -------------------------
 .vscode/
 .idea/
 
-# Mac system files
-.DS_Store
+# -------------------------
+# Tailwind CLI Binary (never commit)
+# -------------------------
+tailwindcss.exe
+tailwindcss
 
-# Windows system files
-Thumbs.db
-
-# Miscellaneous
-versioning-workflow.md
+# -------------------------
+# Misc
+# -------------------------
+*.tmp
+*.swp
