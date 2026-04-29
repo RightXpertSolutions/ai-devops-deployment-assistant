@@ -39,3 +39,6 @@ temp/
 
 # Windows system files
 Thumbs.db
+
+# Miscellaneous
+versioning-workflow.md
